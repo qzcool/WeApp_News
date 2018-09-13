@@ -1,0 +1,19 @@
+/**index.wxss**/
+.index-header {
+  display: flex;
+}
+
+.index-header-column {
+  display:flex;
+  width: 120rpx;
+  flex-shrink: 0;
+  font-size: 36rpx;
+  line-height: 42rpx;
+  flex-direction:column;
+  align-items:center;
+}
+
+.index-header-column-text {
+  font-size: 30rpx;
+  line-height: 42rpx;  
+}

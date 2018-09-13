@@ -1,0 +1,24 @@
+/* pages/content.wxss */
+.content-news-title {
+
+}
+
+.content-news-image {
+
+}
+
+.content-news-source {
+
+}
+
+.content-news-time {
+
+}
+
+.content-news-readCount {
+  
+}
+
+.content-news-text {
+
+}

@@ -1,0 +1,13 @@
+<!--pages/content.wxml-->
+
+<!--Header-->
+<view class='content-news-title'>{{news.title}}</view>
+<view class='content-news-source'>{{news.source}}</view>
+<view class='content-news-time'>{{news.time}}</view>
+<view class='content-news-readCount'>{{news.time}}</view>
+
+<!--Text-->
+<view class='content-news-text'>
+  <image class='content-news-image' src='{{news.firstImage}}'></image>
+  <view class='content-news-text-p'>{{news.text-p}}</view> <!--此处需要设置wx for循环,并将图片准确插入到第一段后-->
+</view>
