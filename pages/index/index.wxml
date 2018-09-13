@@ -11,7 +11,7 @@
 
 <!--Top News-->
 <view class='index-news-top' bindtap='onTapDetail'>
-  <view class='index-news-top-title'>{{news.title}}</view>
+  <view class='index-news-top-title'>{{news.title}}</view> <!--修改变量名称为准确值-->
   <image class='index-news-top-image' src='{{news.firstImage}}'></image>
   <view class='index-news-top-source'>{{news.source}}</view>
   <view class='index-news-top-time'>{{news.time}}</view>
