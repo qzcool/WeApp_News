@@ -12,9 +12,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.getDetail() ///异步调用，如何读取并激活id？
   },
-
+  /**
+   * getDetail--获得详情信息:传入ID，传出
+   */
+  getDetail(id) {
+    wx.request({
+      url: 'https://test-miniprogram.com/api/news/detail?id=' + 1523074607650, ///id这边如何导入？
+      success: res => {
+        //let detail = res.data
+        console.log(res)
+      },
+    }
+    )
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -4,19 +4,13 @@
 <scroll-view scroll-x>
   <view class='index-header'>
     <view class='index-header-column'>
-      <view class='index-header-column-text'>国内</view>
-      <view class='index-header-column-text'>国际</view>
-      <view class='index-header-column-text'>财经</view>
-      <view class='index-header-column-text'>娱乐</view>
-      <view class='index-header-column-text'>军事</view>
-      <view class='index-header-column-text'>体育</view>
-      <view class='index-header-column-text'>其他</view>
+      <view class='index-header-column-text'></view> <!--设置wx:for-->
     </view>
   </view>
 </scroll-view>
 
 <!--Top News-->
-<view class='index-news-top'>
+<view class='index-news-top' bindtap='onTapDetail'>
   <view class='index-news-top-title'>{{news.title}}</view>
   <image class='index-news-top-image' src='{{news.firstImage}}'></image>
   <view class='index-news-top-source'>{{news.source}}</view>
@@ -25,7 +19,7 @@
 
 <!--Block News-->
 <scroll-view scroll-x>
-  <view class='index-news-block'>
+  <view class='index-news-block' bindtap='onTapDetail'>
     <view class='index-news-block-title'>{{news.title}}</view>
     <image class='index-news-block-image' src='{{news.firstImage}}'></image>
     <view class='index-news-block-source'>{{news.source}}</view>
