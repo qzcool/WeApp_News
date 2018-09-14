@@ -10,19 +10,20 @@
 </scroll-view>
 
 <!--Top News-->
+<!--改进: 可否将Top News和Block News两部分用更优雅的方式合并，主要是需要设置不同的CSS选项？-->
 <view class='index-news-top' bindtap='onTapDetail'>
-  <view class='index-news-top-title'>{{news.title}}</view> <!--修改变量名称为准确值-->
-  <image class='index-news-top-image' src='{{news.firstImage}}'></image>
-  <view class='index-news-top-source'>{{news.source}}</view>
-  <view class='index-news-top-time'>{{news.time}}</view>
+  <view class='index-news-top-title'>{{indexNews[0].title}}</view> <!--修改变量名称为准确值-->
+  <image class='index-news-top-image' src='{{indexNews[0].firstImage}}'></image>
+  <view class='index-news-top-source'>{{indexNews[0].source}}</view>
+  <view class='index-news-top-time'>{{indexNews[0].time}}</view>
 </view>
 
-<!--Block News-->
+<!--Block News: 列表渲染和条件渲染-->
 <scroll-view scroll-x>
-  <view class='index-news-block' bindtap='onTapDetail'>
-    <view class='index-news-block-title'>{{news.title}}</view>
-    <image class='index-news-block-image' src='{{news.firstImage}}'></image>
-    <view class='index-news-block-source'>{{news.source}}</view>
-    <view class='index-news-block-time'>{{news.time}}</view>
+  <view class='index-news-block' bindtap='onTapDetail' wx:for='{{indexNews}}' wx:key="key" wx:for-item="item" wx:for-index="idx"> 
+    <view wx:if="{{idx>0}}" class='index-news-block-title'>{{item.title}}</view>
+    <image wx:if="{{idx>0}}" class='index-news-block-image' src='{{item.firstImage}}'></image>
+    <view wx:if="{{idx>0}}" class='index-news-block-source'>{{item.source}}</view>
+    <view wx:if="{{idx>0}}" class='index-news-block-time'>{{item.time}}</view>
   </view>
 </scroll-view>

@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    theme: []
+    theme: [],
+    indexNews: []
   },
 
   /**
@@ -21,12 +22,32 @@ Page({
     wx.request({
       url: 'https://test-miniprogram.com/api/news/list?type=gn',
       success: res => {
-        let index = res.data
-        console.log(index.result)
+        let index = res.data.result
+        console.log(index)
+        this.setIndex(index)
       },
       complete: () => {
         callback && callback()
       }
+    })
+  },
+  /**
+   * setIndex--设置首页信息
+   */
+  setIndex(index) {
+    //console.log(index)
+    let indexNews = [] //开头的data部分还用初始化吗？
+    for (let i = 0; i < index.length; i += 1) {
+      indexNews.push({
+        title: index[i].title,
+        firstImage: index[i].firstImage,
+        source: index[i].source,
+        time: index[i].time
+      })
+      //console.log(indexNews)
+    }
+    this.setData({
+      indexNews: indexNews
     })
   },
   onTapDetail() {
