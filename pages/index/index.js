@@ -20,11 +20,14 @@ Page({
    */
   getIndex(callback) {
     wx.request({
-      url: 'https://test-miniprogram.com/api/news/list?type=gn',
+      url: 'https://test-miniprogram.com/api/news/list?type=gn', //允许可选
       success: res => {
         let index = res.data.result
-        console.log(index)
+        // console.log(res)
         this.setIndex(index)
+        this.setData({
+          index: index
+        })
       },
       complete: () => {
         callback && callback()
@@ -50,10 +53,16 @@ Page({
       indexNews: indexNews
     })
   },
-  onTapDetail() {
+  onTapDetail() { //index是否需要重命名？
+    // console.log(index)
+    // let id = index[0].id //如何通过点击得到i位置索引？
+    // console.log(id)
     wx.navigateTo({
-      url: 'pages/content/content', //不在这边导入id
+      url: '/pages/content/content', //不在这边导入id
     })
+    // this.setData({
+    //   id: id
+    // })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

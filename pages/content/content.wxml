@@ -1,13 +1,16 @@
 <!--pages/content.wxml-->
 
 <!--Header-->
-<view class='content-news-title'>{{news.title}}</view>
-<view class='content-news-source'>{{news.source}}</view>
-<view class='content-news-time'>{{news.time}}</view>
-<view class='content-news-readCount'>{{news.time}}</view>
+<view class='content-news-title'>{{detailNews_title}}</view>
+<view class='content-news-source'>{{detailNews_source}}</view>
+<view class='content-news-time'>{{detailNews_time}}</view>
+<view class='content-news-readCount'>{{detailNews_readCount}}</view>
 
 <!--Text-->
 <view class='content-news-text'>
-  <image class='content-news-image' src='{{news.firstImage}}'></image>
-  <view class='content-news-text-p'>{{news.text-p}}</view> <!--此处需要设置wx for循环,并将图片准确插入到第一段后-->
+  <image class='content-news-image' src='{{detailNews_firstImage}}'></image>
+  <view class='content-news-content' wx:for='{{detailNews_content}}' wx:key="key" wx:for-item="item" wx:for-index="idx">
+    <view class='content-news-content-p'>{{item.p_text}}</view>
+    <view>1</view> <!--WXML中如何插入空行-->
+  </view> <!--此处需要设置wx for循环,并将图片准确插入到第一段后；单独再设置一个子列表-->
 </view>
