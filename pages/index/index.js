@@ -20,7 +20,10 @@ Page({
    */
   getIndex(callback) {
     wx.request({
-      url: 'https://test-miniprogram.com/api/news/list?type=gn', //允许可选
+      url: 'https://test-miniprogram.com/api/news/list', //允许可选
+      data: {
+        type: this.data.type
+      },
       success: res => {
         let index = res.data.result
         // console.log(res)
@@ -30,7 +33,8 @@ Page({
         })
       },
       complete: () => {
-        callback && callback()
+        // callback && callback()
+        typeof callback === 'function' && callback()
       }
     })
   },
@@ -58,7 +62,7 @@ Page({
     // let id = index[0].id //如何通过点击得到i位置索引？
     // console.log(id)
     wx.navigateTo({
-      url: '/pages/content/content', //不在这边导入id
+      url: '/pages/content/content?id=' + this.data.id, //不在这边导入id
     })
     // this.setData({
     //   id: id
