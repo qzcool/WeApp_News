@@ -4,7 +4,7 @@
 <scroll-view scroll-x>
   <view class='index-header'>
     <view class='index-header-column'>
-      <view class='index-header-column-text' wx:for='{{theme}} bindtap='onTapSwitchTheme''></view> <!--设置wx:for-->
+      <view class='index-header-column-text' wx:for='{{theme}}' bindtap='onTapSwitchTheme'></view> <!--设置wx:for-->
     </view>
   </view>
 </scroll-view>

@@ -1,12 +1,12 @@
 //index.js
 const themeMap = {
-  'gn':'国内',
-  'gj':'国际',
-  'cj':'财经',
-  'yl':'娱乐',
-  'js':'军事',
-  'ty':'体育',
-  'other':'其他',
+  '国内':'gn',
+  '国际':'gj',
+  '财经':'cj',
+  '娱乐':'yl',
+  '军事':'js',
+  '体育':'ty',
+  '其他':'other',
 }
 
 Page({
@@ -32,7 +32,7 @@ Page({
     wx.request({
       url: 'https://test-miniprogram.com/api/news/list', //允许可选
       data: {
-        type: this.data.theme
+        type: themeMap[this.data.theme]
       },
       success: res => {
         let index = res.data.result
@@ -52,7 +52,7 @@ Page({
    * setIndex--设置首页信息
    */
   setIndex(index) {
-    //console.log(index)
+    // console.log(index)
     let indexNews = [] //开头的data部分还用初始化吗？
     for (let i = 0; i < index.length; i += 1) {
       indexNews.push({
@@ -74,8 +74,8 @@ Page({
     })
     this.getIndex()
   },
-  onTapDetail() { //index是否需要重命名？
-    // console.log(index)
+  onTapDetail(event) { //index是否需要重命名？
+    console.log(event)
     // let id = index[0].id //如何通过点击得到i位置索引？
     // console.log(id)
     wx.navigateTo({
