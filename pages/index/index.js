@@ -68,7 +68,7 @@ Page({
     })
   },
   onTapSwitchTheme() {
-    // 如何传入标签值？
+    // 如何传入标签值？事件和事件对象？
     this.setData({
       theme: themeMap[标签值]
     })
