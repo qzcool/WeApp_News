@@ -53,7 +53,7 @@ Page({
    */
   setIndex(index) {
     // console.log(index)
-    let indexNews = [] //开头的data部分还用初始化吗？
+    let indexNews = []
     for (let i = 0; i < index.length; i += 1) {
       indexNews.push({
         title: index[i].title,
@@ -69,22 +69,19 @@ Page({
     })
   },
   onTapSwitchTheme() {
-    // 如何传入标签值？事件和事件对象？
+    // 问题：如何传入标签值？事件和事件对象？
     this.setData({
       theme: themeMap[标签值]
     })
     this.getIndex()
   },
-  onTapDetail(event) { //index是否需要重命名？
+  onTapDetail(event) { // 问题：为何id仍然无法传递？
     console.log(event)
-    // let id = index[0].id //如何通过点击得到i位置索引？
+    let id = event.target.dataset.id
     // console.log(id)
     wx.navigateTo({
-      url: '/pages/content/content?id=' + this.data.id, //不在这边导入id
+      url: '/pages/content/content?id=' + id,
     })
-    // this.setData({
-    //   id: id
-    // })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
