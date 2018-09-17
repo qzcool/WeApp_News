@@ -17,3 +17,44 @@
   font-size: 30rpx;
   line-height: 42rpx;  
 }
+
+.index-news-top {
+
+}
+
+.index-news-top-title {
+
+}
+
+.index-news-top-image {
+
+}
+
+.index-news-top-source {
+
+}
+
+.index-news-top-time {
+
+}
+
+.index-news-block {
+  /* margin-left: 50rpx;
+  margin-right: 50rpx; */
+}
+
+.index-news-block-title {
+
+}
+
+.index-news-block-image {
+
+}
+
+.index-news-block-source {
+
+}
+
+.index-news-block-time {
+
+}

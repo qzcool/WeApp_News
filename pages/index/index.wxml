@@ -19,11 +19,11 @@
 </view>
 
 <!--Block News: 列表渲染和条件渲染-->
-<scroll-view scroll-x>
+<view>
   <view class='index-news-block' bindtap='onTapDetail' wx:for='{{indexNews}}' wx:key="key" wx:for-item="item" wx:for-index="idx"> 
     <view wx:if="{{idx>0}}" class='index-news-block-title'>{{item.title}}</view>
     <image wx:if="{{idx>0}}" class='index-news-block-image' src='{{item.firstImage}}'></image>
     <view wx:if="{{idx>0}}" class='index-news-block-source'>{{item.source}}</view>
     <view wx:if="{{idx>0}}" class='index-news-block-time'>{{item.time}}</view>
   </view>
-</scroll-view>
+</view>
