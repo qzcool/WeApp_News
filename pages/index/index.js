@@ -24,7 +24,15 @@ Page({
    */
   onLoad: function (options) {
     this.getIndex()
+    
+    // 设置首页标题栏
+    // 问题：theme设置放在这里合适吗？如何Debug？
+    let theme = ['国内', '国际', '财经', '娱乐', '军事', '体育', '其他'] // local variable
+    this.setData({
+      theme: theme
+    })
   },
+  
   /**
    * getIndex--获得首页信息
    */
@@ -52,8 +60,9 @@ Page({
    * setIndex--设置首页信息
    */
   setIndex(index) {
+    // 设置首页新闻列表栏
     // console.log(index)
-    let indexNews = []
+    let indexNews = [] // local variable
     for (let i = 0; i < index.length; i += 1) {
       indexNews.push({
         title: index[i].title,
@@ -68,10 +77,10 @@ Page({
       indexNews: indexNews
     })
   },
-  onTapSwitchTheme() {
+  onTapSwitchTheme(event) {
     // 问题：如何传入标签值？事件和事件对象？
     this.setData({
-      theme: themeMap[标签值]
+      theme: themeMap[event.target.dataset.theme]
     })
     this.getIndex()
   },

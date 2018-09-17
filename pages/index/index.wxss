@@ -13,11 +13,6 @@
   align-items:center;
 }
 
-.index-header-column-text {
-  font-size: 30rpx;
-  line-height: 42rpx;  
-}
-
 .index-news-top {
 
 }

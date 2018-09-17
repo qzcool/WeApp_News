@@ -1,13 +1,10 @@
 <!--index.wxml-->
 
 <!--Header-->
-<scroll-view scroll-x>
-  <view class='index-header'>
-    <view class='index-header-column'>
-      <view class='index-header-column-text' wx:for='{{theme}}' bindtap='onTapSwitchTheme'></view> <!--设置wx:for-->
-    </view>
-  </view>
-</scroll-view>
+<!--问题：如何设置横向滑动？-->
+<view class='index-header'>
+  <view class='index-header-column' wx:for='{{theme}}' bindtap='onTapSwitchTheme' data-theme='{{item.name}}'>{{item}}</view> <!--设置wx:for-->
+</view>
 
 <!--Top News-->
 <view class='index-news-top' bindtap='onTapDetail'>
@@ -19,7 +16,7 @@
 
 <!--Block News: 列表渲染和条件渲染-->
 <view>
-  <view class='index-news-block' data-id='{{indexNews.id}}' bindtap='onTapDetail' wx:for='{{indexNews}}' wx:key="key" wx:for-item="item" wx:for-index="idx"> 
+  <view class='index-news-block' data-id='{{item.id}}' bindtap='onTapDetail' wx:for='{{indexNews}}' wx:key="key" wx:for-item="item" wx:for-index="idx"> 
   <!--问题-MDN数据传递：data-id如何设置？indexNews.id还是item.id？-->
     <view wx:if="{{idx>0}}" class='index-news-block-title'>{{item.title}}</view>
     <image wx:if="{{idx>0}}" class='index-news-block-image' src='{{item.firstImage}}'></image>
