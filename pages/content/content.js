@@ -12,11 +12,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // console.log(options)
     this.setData({
       id: options.id
     })
-    console.log(id)
-    this.getDetail() ///异步调用，如何读取并激活id？
+    // console.log(this.data.id)
+    this.getDetail()
   },
   
   /**
@@ -24,7 +25,7 @@ Page({
    */
   getDetail() { //可以设置下拉刷新
     wx.request({
-      url: 'https://test-miniprogram.com/api/news/detail?id=' + 1523074607650, ///id这边如何导入？
+      url: 'https://test-miniprogram.com/api/news/detail?id=' + this.data.id,
       success: res => {
         let detail = res.data.result
         let content = res.data.result.content
@@ -51,7 +52,8 @@ Page({
       detailNews_source: detail.source,
       detailNews_time: detail.date,//`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} 今天`,
       detailNews_readCount: detail.readCount,
-      detailNews_firstImage: detail.firstImage,
+      // detailNews_firstImage: detail.firstImage,
+      // 问题：“此页面不需要 firstImage 图片数据，而是请求的新闻详情数据中的各种类型的数据，如 image, p, strong 等等。”，这句批注如何理解？
       detailNews_content: detailNews_content
     })
   },

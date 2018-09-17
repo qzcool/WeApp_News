@@ -15,8 +15,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    allTheme: ['国内', '国际', '财经', '娱乐', '军事', '体育', '其他'],
     theme: '国内',
-    indexNews: []
+    indexNews: [],
   },
 
   /**
@@ -25,14 +26,6 @@ Page({
   onLoad: function (options) {
     this.getIndex()
     // console.log(theme)
-
-    // 设置首页标题栏
-    // 问题：theme设置放在这里合适吗？如何Debug？
-    let theme = ['国内', '国际', '财经', '娱乐', '军事', '体育', '其他'] // local variable
-    this.setData({
-      theme: theme
-    })
-    // console.log(theme)
   },
   
   /**
@@ -40,7 +33,7 @@ Page({
    */
   getIndex(callback) {
     wx.request({
-      url: 'https://test-miniprogram.com/api/news/list', //允许可选
+      url: 'https://test-miniprogram.com/api/news/list',
       data: {
         type: themeMap[this.data.theme]
       },
@@ -63,9 +56,9 @@ Page({
    */
   setIndex(index) {
     // 设置首页新闻列表栏
-    // console.log(index)
+    console.log(index.length)
     let indexNews = [] // local variable
-    for (let i = 0; i < index.length; i += 1) {
+    for (let i = 0; i < index.length; i += 1) { // 问题：length未定义，Debug哪里出错了
       indexNews.push({
         title: index[i].title,
         firstImage: index[i].firstImage,
@@ -82,16 +75,14 @@ Page({
   onTapSwitchTheme(event) {
     // 问题：如何传入标签值？事件和事件对象？
     this.setData({
-      theme: themeMap[event.target.dataset.theme]
+      theme: themeMap[event.currentTarget.dataset.theme]
     })
     this.getIndex()
   },
-  onTapDetail(event) { // 问题：为何id仍然无法传递？
-    console.log(event)
-    let id = event.target.dataset.id
-    // console.log(id)
+  onTapDetail(event) {
+    // console.log(event.currentTarget.dataset.id)
     wx.navigateTo({
-      url: '/pages/content/content?id=' + id,
+        url: '/pages/content/content?id=' + event.currentTarget.dataset.id,
     })
   },
   /**
@@ -126,7 +117,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.getNow(() => {
+    this.getIndex(() => {
       wx.stopPullDownRefresh()
     })
   },
