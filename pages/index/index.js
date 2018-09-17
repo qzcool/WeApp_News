@@ -59,7 +59,8 @@ Page({
         title: index[i].title,
         firstImage: index[i].firstImage,
         source: index[i].source,
-        time: index[i].time
+        time: index[i].time,
+        id: index[i].id,
       })
       //console.log(indexNews)
     }
