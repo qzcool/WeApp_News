@@ -1,11 +1,21 @@
 //index.js
+const themeMap = {
+  'gn':'国内',
+  'gj':'国际',
+  'cj':'财经',
+  'yl':'娱乐',
+  'js':'军事',
+  'ty':'体育',
+  'other':'其他',
+}
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    theme: [],
+    theme: '国内',
     indexNews: []
   },
 
@@ -22,7 +32,7 @@ Page({
     wx.request({
       url: 'https://test-miniprogram.com/api/news/list', //允许可选
       data: {
-        type: this.data.type
+        type: this.data.theme
       },
       success: res => {
         let index = res.data.result
@@ -56,6 +66,13 @@ Page({
     this.setData({
       indexNews: indexNews
     })
+  },
+  onTapSwitchTheme() {
+    // 如何传入标签值？
+    this.setData({
+      theme: themeMap[标签值]
+    })
+    this.getIndex()
   },
   onTapDetail() { //index是否需要重命名？
     // console.log(index)
