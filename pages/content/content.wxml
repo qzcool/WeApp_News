@@ -11,6 +11,6 @@
   <image class='content-news-image' src='{{detailNews_firstImage}}'></image>
   <view class='content-news-content' wx:for='{{detailNews_content}}' wx:key="key" wx:for-item="item" wx:for-index="idx">
     <view class='content-news-content-p'>{{item.p_text}}</view>
-    <view>1</view> <!--WXML中如何插入空行-->
-  </view> <!--此处需要设置wx for循环,并将图片准确插入到第一段后；单独再设置一个子列表-->
+    <view>1</view> <!--问题：WXML中如何插入空行-->
+  </view> 
 </view>

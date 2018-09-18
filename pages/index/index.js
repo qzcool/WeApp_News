@@ -73,9 +73,11 @@ Page({
   },
   onTapSwitchTheme(event) {
     // 问题：如何传入标签值？事件和事件对象？
+    // console.log(themeMap[event.currentTarget.dataset.theme])
     this.setData({
-      theme: themeMap[event.currentTarget.dataset.theme]
+      theme: event.currentTarget.dataset.theme // 注意：这里不需要设置themeMap
     })
+    // console.log(theme)
     this.getIndex()
   },
   onTapDetail(event) {
