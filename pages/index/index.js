@@ -55,7 +55,7 @@ Page({
    * setIndex--设置首页信息
    */
   setIndex(index) {
-    console.log(index)
+    // console.log(index)
     let indexNews = [] // local variable
     for (let i = 0; i < index.length; i += 1) { // 问题：length未定义，Debug哪里出错了
       indexNews.push({
