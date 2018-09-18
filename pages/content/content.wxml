@@ -1,16 +1,29 @@
 <!--pages/content.wxml-->
 
 <!--Header-->
-<view class='content-news-title'>{{detailNews_title}}</view>
+<!-- <view class='content-news-title'>{{detailNews_title}}</view>
 <view class='content-news-source'>{{detailNews_source}}</view>
 <view class='content-news-time'>{{detailNews_time}}</view>
-<view class='content-news-readCount'>阅读量：{{detailNews_readCount}}</view>
+<view class='content-news-readCount'>阅读量：{{detailNews_readCount}}</view> -->
+<view class='content-news-title'>{{title}}</view>
+<view class='content-news-source'>{{source}}</view>
+<view class='content-news-time'>{{date}}</view>
+<view class='content-news-readCount'>阅读量：{{readCount}}</view>
 
 <!--Text-->
-<view class='content-news-text'>
+<!-- <view class='content-news-text'>
   <image class='content-news-image' src='{{detailNews_firstImage}}'></image>
   <view class='content-news-content' wx:for='{{detailNews_content}}' wx:key="key" wx:for-item="item" wx:for-index="idx">
     <view class='content-news-content-p'>{{item.p_text}}\n</view>
     <!-- <view>\n</view> 问题：WXML中如何插入空行 -->
-  </view> 
-</view>
+  <!-- </view>  -->
+<!-- </view> -->
+<block wx:for="{{content}}" wx:key="key">
+  <image wx:if="false" src="{{item.src}}"></image>
+  <view wx:if="false">{{item.text}}</view>
+  <text wx:if="{{item.type}}=='strong'" style="font-weight: bold">{{item.text}}</text>
+</block>
+
+<!-- {{item.type}}=='image' -->
+<!-- {{item.type}}=='p' -->
+<!-- {{item.type}}=='strong' -->
