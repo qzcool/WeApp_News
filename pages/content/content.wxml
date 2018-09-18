@@ -4,7 +4,7 @@
 <view class='content-news-title'>{{detailNews_title}}</view>
 <view class='content-news-source'>{{detailNews_source}}</view>
 <view class='content-news-time'>{{detailNews_time}}</view>
-<view class='content-news-readCount'>{{detailNews_readCount}}</view>
+<view class='content-news-readCount'>阅读量：{{detailNews_readCount}}</view>
 
 <!--Text-->
 <view class='content-news-text'>

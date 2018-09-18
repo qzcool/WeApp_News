@@ -14,42 +14,45 @@
 }
 
 .index-news-top {
-
+  margin-top: 20rpx;
 }
 
 .index-news-top-title {
-
+  font-size: small;
 }
 
 .index-news-top-image {
-
+  width: 750rpx;
 }
 
 .index-news-top-source {
-
+  font-size: xx-small;
+  color: grey;
 }
 
 .index-news-top-time {
-
+  font-size: xx-small;
 }
 
 .index-news-block {
   /* margin-left: 50rpx;
   margin-right: 50rpx; */
+  margin-top: 10rpx;
 }
 
 .index-news-block-title {
-
+  font-size: small;
 }
 
 .index-news-block-image {
-
+  width: 750rpx;
 }
 
 .index-news-block-source {
-
+  font-size: xx-small;
+  color: grey;
 }
 
 .index-news-block-time {
-
+  font-size: xx-small;
 }

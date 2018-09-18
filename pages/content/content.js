@@ -1,13 +1,11 @@
 // pages/content.js
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
     
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -19,7 +17,6 @@ Page({
     // console.log(this.data.id)
     this.getDetail()
   },
-  
   /**
    * getDetail--获得详情信息:传入ID，传出
    */
@@ -32,10 +29,8 @@ Page({
         // console.log(detail, content)
         this.setDetail(detail)
       },
-    }
-    )
+    })
   },
-
   /**
    * setDetail--设置详情信息
    */
@@ -50,60 +45,11 @@ Page({
     this.setData({
       detailNews_title: detail.title,
       detailNews_source: detail.source,
-      detailNews_time: detail.date,//`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} 今天`,
+      detailNews_time: detail.date.substring(0,10), //`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} 今天`, 因为date格式不为Date而是string
       detailNews_readCount: detail.readCount,
-      // detailNews_firstImage: detail.firstImage,
+      detailNews_firstImage: detail.firstImage,
       // 问题：“此页面不需要 firstImage 图片数据，而是请求的新闻详情数据中的各种类型的数据，如 image, p, strong 等等。”，这句批注如何理解？
       detailNews_content: detailNews_content
     })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-    
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    
-  }
 })

@@ -4,19 +4,21 @@
 }
 
 .content-news-image {
-
+  width: 750rpx;
 }
 
 .content-news-source {
-
+  font-size: xx-small;
+  color: grey;
 }
 
 .content-news-time {
-
+  font-size: xx-small;
 }
 
 .content-news-readCount {
-  
+  font-size: xx-small;
+
 }
 
 .content-news-text {

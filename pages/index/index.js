@@ -55,17 +55,24 @@ Page({
    * setIndex--设置首页信息
    */
   setIndex(index) {
-    // console.log(index)
+    // 判断firstImage是否含有图片链接，如果无则使用默认图片Lighthouse.jpg
     let indexNews = [] // local variable
     for (let i = 0; i < index.length; i += 1) { // 问题：length未定义，Debug哪里出错了
-      indexNews.push({
-        title: index[i].title,
-        firstImage: index[i].firstImage,
-        source: index[i].source,
-        time: index[i].time,
-        id: index[i].id,
-      })
-      //console.log(indexNews)
+      let firstImage_url = ''
+      if (index[i].firstImage.length != 0) {
+        firstImage_url = index[i].firstImage;
+      }
+      else {
+        firstImage_url = '/images/Lighthouse.jpg';
+      }
+    // 传入indexNews列表
+    indexNews.push({
+      title: index[i].title,
+      firstImage: firstImage_url,
+      source: index[i].source,
+      time: index[i].date.substring(0,10), // .toLocalStringDate方法可以用来处理Date格式，但此处为String格式；https://stackoverflow.com/questions/3552461/how-to-format-a-javascript-date
+      id: index[i].id,
+    })
     }
     this.setData({
       indexNews: indexNews
@@ -73,67 +80,23 @@ Page({
   },
   onTapSwitchTheme(event) {
     // 问题：如何传入标签值？事件和事件对象？
-    // console.log(themeMap[event.currentTarget.dataset.theme])
     this.setData({
       theme: event.currentTarget.dataset.theme // 注意：这里不需要设置themeMap
     })
-    // console.log(theme)
     this.getIndex()
   },
   onTapDetail(event) {
-    // console.log(event.currentTarget.dataset.id)
     wx.navigateTo({
         url: '/pages/content/content?id=' + event.currentTarget.dataset.id,
     })
   },
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-    
-  },
-
-  /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
+  // 问题：行号旁边的红色右箭头是什么意思？有Bug？
   onPullDownRefresh: function () {
     this.getIndex(() => {
       wx.stopPullDownRefresh()
     })
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    
-  }
 })
