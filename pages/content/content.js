@@ -21,7 +21,6 @@ Page({
         let { title, source, firstImage, date, readCount, content } = result
         date = date.substring(0,10)
         this.setData({ title, source, firstImage, date, readCount, content })
-        // console.log(result.readCount)
       }
     })
   }

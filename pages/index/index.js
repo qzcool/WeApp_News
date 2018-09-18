@@ -57,22 +57,17 @@ Page({
   setIndex(index) {
     // 判断firstImage是否含有图片链接，如果无则使用默认图片Lighthouse.jpg
     let indexNews = [] // local variable
-    for (let i = 0; i < index.length; i += 1) { // 问题：length未定义，Debug哪里出错了
+    for (let i = 0; i < index.length; i += 1) {
       let firstImage_url = ''
-      if (index[i].firstImage.length != 0) {
-        firstImage_url = index[i].firstImage;
-      }
-      else {
-        firstImage_url = '/images/Lighthouse.jpg';
-      }
-    // 传入indexNews列表
-    indexNews.push({
-      title: index[i].title,
-      firstImage: firstImage_url,
-      source: index[i].source,
-      time: index[i].date.substring(0,10), // .toLocalStringDate方法可以用来处理Date格式，但此处为String格式；https://stackoverflow.com/questions/3552461/how-to-format-a-javascript-date
-      id: index[i].id,
-    })
+      firstImage_url = index[i].firstImage.length != 0 ? index[i].firstImage : '/images/Lighthouse.jpg'
+      // 传入indexNews列表
+      indexNews.push({
+        title: index[i].title,
+        firstImage: firstImage_url,
+        source: index[i].source,
+        time: index[i].date.substring(0,10), // .toLocalStringDate方法可以用来处理Date格式，但此处为String格式；https://stackoverflow.com/questions/3552461/how-to-format-a-javascript-date
+        id: index[i].id,
+      })
     }
     this.setData({
       indexNews: indexNews
