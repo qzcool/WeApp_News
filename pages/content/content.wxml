@@ -10,7 +10,7 @@
 <view class='content-news-text'>
   <image class='content-news-image' src='{{detailNews_firstImage}}'></image>
   <view class='content-news-content' wx:for='{{detailNews_content}}' wx:key="key" wx:for-item="item" wx:for-index="idx">
-    <view class='content-news-content-p'>{{item.p_text}}</view>
-    <view>1</view> <!--问题：WXML中如何插入空行-->
+    <view class='content-news-content-p'>{{item.p_text}}\n</view>
+    <!-- <view>\n</view> 问题：WXML中如何插入空行 -->
   </view> 
 </view>
