@@ -1,1 +1,2 @@
-# Practice_WechatMiniProgram_News
+# News
+A template to create a news WeChat Mini-program.
